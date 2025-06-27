@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap');
+        
+        :root {
+            --orange: #FF6600;
+            --dark: #333333;
+            --light: #F4F4F4;
+            --white: #FFFFFF;
+            --radius: 8px;
+            --transition: 0.2s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            padding: 1rem;
+        }
+
+        header .logo {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--orange);
+            font-size: 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--orange);
+            margin-bottom: 1rem;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
+            transition: background var(--transition), transform var(--transition);
+        }
+
+        button:hover {
+            background: #e55a00;
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: var(--radius);
+            font-family: inherit;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .report-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .report-type-card {
+            background: var(--white);
+            border: 2px solid #e0e0e0;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .report-type-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        .report-type-card.selected {
+            border-color: var(--orange);
+            background: #fff5f0;
+        }
+
+        .report-type-card h3 {
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .report-type-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .report-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-section {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+        }
+
+        .filter-section h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .summary-section {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-section h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding: 0.25rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+        }
+
+        .download-section {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .download-button {
+            background: var(--orange);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all var(--transition);
+            min-width: 200px;
+        }
+
+        .download-button:hover {
+            background: #e55a00;
+            transform: translateY(-2px);
+        }
+
+        .download-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .store-info {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .store-info h3 {
+            color: #2e7d2e;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .breadcrumb {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .breadcrumb a {
+            color: var(--orange);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .report-type-grid {
+                grid-template-columns: 1fr;
+            }
+        }

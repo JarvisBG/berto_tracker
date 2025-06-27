@@ -1,0 +1,10 @@
+{
+  "development": {
+    "driver": "sqlite3",
+    "database": "./data/employee_tracker.db"
+  },
+  "production": {
+    "driver": "sqlite3",
+    "database": "./data/employee_tracker.db"
+  }
+}

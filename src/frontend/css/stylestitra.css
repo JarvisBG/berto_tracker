@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap');
+        
+        :root {
+            --orange: #FF6600;
+            --dark: #333333;
+            --light: #F4F4F4;
+            --white: #FFFFFF;
+            --radius: 8px;
+            --transition: 0.2s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            padding: 1rem;
+        }
+
+        header .logo {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--orange);
+            font-size: 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--orange);
+            margin-bottom: 1rem;
+        }
+
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
+            transition: background var(--transition), transform var(--transition);
+        }
+
+        button:hover {
+            background: #e55a00;
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+
+        .table th, .table td {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        .table th {
+            background: var(--orange);
+            color: var(--white);
+            text-align: left;
+        }
+
+        .table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: var(--radius);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        /* Styles pour le scanner */
+        #scanner-container {
+            position: relative;
+            margin: 1rem 0;
+            display: none;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        #scanner-video {
+            border-radius: var(--radius);
+            background: var(--dark);
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            display: block;
+            position: relative;
+        }
+
+        .scanner-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #333, #555);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+
+        .scanner-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border: 2px solid var(--orange);
+            border-radius: 10px;
+            background: rgba(255, 102, 0, 0.1);
+        }
+
+        .scanner-info {
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--dark);
+        }
+
+        .card p {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        .error-message {
+            background: #ffe6e6;
+            color: #e74c3c;
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .store-info {
+            background: var(--orange);
+            color: var(--white);
+            padding: 1rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .time-input {
+            max-width: 100px;
+            text-align: center;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .status-present {
+            background: #e8f5e8;
+            color: #2e7d2e;
+        }
+
+        .status-absent {
+            background: #ffe6e6;
+            color: #e74c3c;
+        }
+
+        .status-late {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .btn-small {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+            min-width: auto;
+        }
+
+        .scanner-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .current-time {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--orange);
+            text-align: center;
+            margin-bottom: 1rem;
+        }

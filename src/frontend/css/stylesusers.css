@@ -1,0 +1,265 @@
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap');
+        
+        :root {
+            --orange: #FF6600;
+            --dark: #333333;
+            --light: #F4F4F4;
+            --white: #FFFFFF;
+            --radius: 8px;
+            --transition: 0.2s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            padding: 1rem;
+        }
+
+        header .logo {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--orange);
+            font-size: 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--orange);
+            margin-bottom: 1rem;
+        }
+
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
+            transition: background var(--transition), transform var(--transition);
+        }
+
+        button:hover {
+            background: #e55a00;
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+
+        .table th, .table td {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        .table th {
+            background: var(--orange);
+            color: var(--white);
+            text-align: left;
+        }
+
+        .table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-delete {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background var(--transition);
+        }
+
+        .btn-delete:hover {
+            background: #c0392b;
+        }
+
+        .btn-edit {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            transition: background var(--transition);
+        }
+
+        .btn-edit:hover {
+            background: #2980b9;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .role-admin {
+            background: #e8f5e8;
+            color: #2e7d2e;
+        }
+
+        .role-manager {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--orange);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--dark);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .search-section {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-select {
+            min-width: 150px;
+        }
+
+        .actions-column {
+            min-width: 150px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-section {
+                flex-direction: column;
+            }
+        }
+
+        .success-message {
+            background: #e8f5e8;
+            color: #2e7d2e;
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .error-message {
+            background: #ffe6e6;
+            color: #e74c3c;
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            text-align: center;
+        }

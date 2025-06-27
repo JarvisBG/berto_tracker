@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - BERTO Tracker</title>
+  <link rel="stylesheet" href="../../css/stylesdashboard.css">
+</head>
+<body>
+  <header>
+    <div class="logo">📊 BERTO Tracker - Admin</div>
+  </header>
+  <div class="container">
+    <h1>Dashboard de Suivi des Employés</h1>
+    <!-- Filtres -->
+    <div class="filter-section">
+      <div class="filter-group">
+        <label>Boutique</label>
+        <select id="storeFilter">
+          <option value="">Toutes les boutiques</option>
+          <option value="1">Boutique PK 12</option>
+          <option value="2">Boutique Zachman</option>
+          <option value="3">Boutique Dakar</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Période</label>
+        <select id="periodFilter">
+          <option value="today">Aujourd'hui</option>
+          <option value="week">Cette semaine</option>
+          <option value="month">Ce mois</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Département</label>
+        <select id="departmentFilter">
+          <option value="">Tous les départements</option>
+          <option value="Supervision Réseau">Supervision Réseau</option>
+          <option value="Commercial">Commercial</option>
+          <option value="Comptabilité">Comptabilité</option>
+          <option value="SAV">SAV</option>
+          <option value="Caissière">Caissière</option>
+        </select>
+      </div>
+    </div>
+    <!-- Statistiques générales -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number" id="totalEmployees">0</div>
+        <div class="stat-label">Employés Total</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="presentToday">0</div>
+        <div class="stat-label">Présents Aujourd'hui</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="lateToday">0</div>
+        <div class="stat-label">Retards Aujourd'hui</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="avgHours">0h</div>
+        <div class="stat-label">Moyenne Heures/Jour</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="attendanceRate">0%</div>
+        <div class="stat-label">Taux de Présence</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="overtime">0h</div>
+        <div class="stat-label">Heures Supplémentaires</div>
+      </div>
+    </div>
+    <!-- Alertes -->
+    <div class="alert" id="alerts"></div>
+    <div class="two-column">
+      <!-- Graphiques -->
+      <div>
+        <div class="card">
+          <h2>Présence par Boutique</h2>
+          <div class="chart-container">
+            <div class="chart-placeholder" id="storeChart">
+                            📊 Graphique en barres<br>
+                            Présence par boutique
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Évolution des Heures</h2>
+          <div class="chart-container">
+            <div class="chart-placeholder" id="hoursChart">
+                            📈 Graphique linéaire<br>
+                            Heures travaillées sur 30 jours
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tableaux de bord -->
+      <div>
+        <div class="card">
+          <h2>Top Retardataires (Cette Semaine)</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Employé</th>
+                <th>Boutique</th>
+                <th>Retards</th>
+                <th>Temps Moyen</th>
+              </tr>
+            </thead>
+            <tbody id="lateEmployees">
+              <tr>
+                                <td>Jarvis</td>
+                                <td>Boutique PK12</td>
+                                <td>4</td>
+                                <td>12 min</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <h2>Performance par Boutique</h2>
+          <div style="margin-bottom: 1rem;" id="shopPerformance">
+                        <strong>Boutique PK12</strong>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%"></div>
+                        </div>
+                        <small>92% - 23/25 employés présents</small>
+                    </div>
+                    <div style="margin-bottom: 1rem;" id="shopPerformance">
+                        <strong>Boutique Zachman</strong>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 88%"></div>
+                        </div>
+                        <small>88% - 22/25 employés présents</small>
+                    </div>
+                    <div style="margin-bottom: 1rem;" id="shopPerformance">
+                        <strong>Boutique Dakar</strong>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <small>85% - 17/20 employés présents</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tableau détaillé -->
+    <div class="card">
+      <h2>État Actuel des Employés</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Boutique</th>
+            <th>Département</th>
+            <th>Arrivée</th>
+            <th>Statut</th>
+            <th>Heures Aujourd'hui</th>
+          </tr>
+        </thead>
+        <tbody id="employeeTable">
+          <tr>
+                        <td>Lislaure</td>
+                        <td>Boutique PK12</td>
+                        <td>Supervision Réseau</td>
+                        <td>08:00</td>
+                        <td><span class="status-badge status-present">Ponctuel</span></td>
+                        <td>6h 15min</td>
+                    </tr>
+                    <tr>
+                        <td>Francine</td>
+                        <td>Boutique Zachman</td>
+                        <td>Supervision Réseau</td>
+                        <td>08:15</td>
+                        <td><span class="status-badge status-late">En Retard</span></td>
+                        <td>5h 45min</td>
+                    </tr>
+                    <tr>
+                        <td>Armelle</td>
+                        <td>Boutique Dakar</td>
+                        <td>Caissière</td>
+                        <td>07:45</td>
+                        <td><span class="status-badge status-present">Présent</span></td>
+                        <td>7h 30min</td>
+                    </tr>
+                    <tr>
+                        <td>Leonel</td>
+                        <td>Boutique Zachman</td>
+                        <td>Commercial</td>
+                        <td>-</td>
+                        <td><span class="status-badge status-absent">Absent</span></td>
+                        <td>0h 00min</td>
+                    </tr>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Statistiques détaillées -->
+    <div class="two-column">
+      <div class="card">
+        <h2>Répartition par Horaires</h2>
+        <div style="margin-bottom: 1rem;" id="scheduleDistribution">
+                    <strong>7h30-15h</strong>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 78%"></div>
+                    </div>
+                    <small>45 employés - 78% présents</small>
+                </div>
+                <div style="margin-bottom: 1rem;" id="scheduleDistribution">
+                    <strong>15h-21h</strong>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 92%"></div>
+                    </div>
+                    <small>52 employés - 92% présents</small>
+                </div>
+                <div id="scheduleDistribution">
+                    <strong>7h30-18h</strong>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                    <small>30 employés - 85% présents</small>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Tendances de la Semaine</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Jour</th>
+              <th>Présents</th>
+              <th>Retards</th>
+              <th>Absences</th>
+            </tr>
+          </thead>
+          <tbody id="weekTrends">
+                        <tr>
+                            <td>Lundi</td>
+                            <td>118</td>
+                            <td>12</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td>Mardi</td>
+                            <td>122</td>
+                            <td>8</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Mercredi</td>
+                            <td>119</td>
+                            <td>10</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>Jeudi</td>
+                            <td>116</td>
+                            <td>15</td>
+                            <td>11</td>
+                        </tr>
+                        <tr>
+                            <td>Vendredi</td>
+                            <td>95</td>
+                            <td>8</td>
+                            <td>32</td>
+                        </tr>
+                        <tr>
+                            <td>Samedi</td>
+                            <td>95</td>
+                            <td>8</td>
+                            <td>32</td>
+                        </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Actions rapides -->
+    <div class="nav-buttons">
+      <button onclick="window.location.href='shops.html'">🏨 Boutiques</button>
+      <button onclick="window.location.href='users.html'">👷‍♀️ Utilisateurs</button>
+      <button onclick="window.location.href='employees.html'">🙎‍♂️ Employés</button>
+      <button onclick="window.location.href='global-reports.html'">📝 Rapports</button>
+      <button onclick="logout()">Déconnexion</button>
+    </div>
+  </div>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="../../js/pages/dashboard.js"></script>
+</body>
+</html>

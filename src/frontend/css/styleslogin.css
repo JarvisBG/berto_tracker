@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap');
+        
+        :root {
+            --orange: #FF6600;
+            --dark: #333333;
+            --light: #F4F4F4;
+            --white: #FFFFFF;
+            --radius: 8px;
+            --transition: 0.2s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            padding: 1rem;
+        }
+
+        header .logo {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--orange);
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .login-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .login-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--orange);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-subtitle {
+            color: var(--dark);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color var(--transition);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        .login-button {
+            width: 100%;
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.9rem 1rem;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background var(--transition), transform var(--transition);
+            margin-top: 1rem;
+        }
+
+        .login-button:hover {
+            background: #e55a00;
+            transform: translateY(-2px);
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .forgot-password {
+            color: var(--orange);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity var(--transition);
+        }
+
+        .forgot-password:hover {
+            opacity: 0.8;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--dark);
+            background: var(--white);
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .company-info {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(255, 102, 0, 0.05);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--orange);
+        }
+
+        .company-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .company-info p {
+            font-size: 0.9rem;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        .input-icon {
+            position: relative;
+        }
+
+        .input-icon::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background-size: contain;
+            opacity: 0.5;
+        }
+
+        .user-icon::before {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggOEM5LjY1Njg1IDggMTEgNi42NTY4NSAxMSA1QzExIDMuMzQzMTUgOS42NTY4NSAyIDggMkM2LjM0MzE1IDIgNSAzLjM0MzE1IDUgNUM1IDYuNjU2ODUgNi4zNDMxNSA4IDggOFpNOCAxMEM1LjMzIDEwIDMgMTIuMzMgMyAxNUgxM0MxMyAxMi4zMyAxMC42NyAxMCA4IDEwWiIgZmlsbD0iIzMzMzMzMyIvPgo8L3N2Zz4K');
+        }
+
+        .password-icon::before {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDZWNEMxMiAyLjM0IDEwLjY2IDEgOSAxSDdDNS4zNCAxIDQgMi4zNCA0IDRINFY2QzMuNDUgNiAzIDYuNDUgMyA3VjEzQzMgMTMuNTUgMy40NSAxNCA0IDE0SDEyQzEyLjU1IDE0IDEzIDEzLjU1IDEzIDEzVjdDMTMgNi40NSAxMi41NSA2IDEyIDZaTTggMTFDNy40NSAxMSA3IDEwLjU1IDcgMTBDNyA5LjQ1IDcuNDUgOSA4IDlDOC41NSA5IDkgOS40NSA5IDEwQzkgMTAuNTUgOC41NSAxMSA4IDExWk0xMCA2SDZWNEM2IDMuNDUgNi40NSAzIDcgM0g5QzkuNTUgMyAxMCAzLjQ1IDEwIDRWNloiIGZpbGw9IiMzMzMzMzMiLz4KPC9zdmc+Cg==');
+        }
+
+        .input-icon input {
+            padding-left: 2.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+            
+            .login-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animation subtile au chargement */
+        .login-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }

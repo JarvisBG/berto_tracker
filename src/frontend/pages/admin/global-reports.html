@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rapports Globaux - BERTO Tracker</title>
+  <link rel="stylesheet" href="../../css/stylesglore.css">
+</head>
+<body>
+  <header>
+    <div class="logo">📊 BERTO Tracker - Rapports</div>
+  </header>
+  <div class="container">
+    <h1>Rapports Globaux</h1>
+
+    <!-- Onglets de période -->
+        <div class="period-tabs">
+            <button class="period-tab active">📅 Quotidien</button>
+            <button class="period-tab">📊 Hebdomadaire</button>
+            <button class="period-tab">📈 Mensuel</button>
+        </div>
+
+    <!-- Filtres -->
+        <div class="card">
+            <h2>Filtres de Génération</h2>
+            <div class="filters-grid">
+                <div class="form-group">
+                    <label for="dateFrom">Date de début</label>
+                    <input type="date" id="dateFrom" value="2024-01-01">
+                </div>
+                <div class="form-group">
+                    <label for="dateTo">Date de fin</label>
+                    <input type="date" id="dateTo" value="2024-01-31">
+                </div>
+                <div class="form-group">
+                    <label for="shop">Boutique</label>
+                    <select id="shop" name="shop">
+                        <option value="all">Toutes les boutiques</option>
+                        <option value="1">Boutique PK 12</option>
+                        <option value="2">Boutique Zachman</option>
+                        <option value="3">Boutique Dakar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="department">Département</label>
+                    <select id="department" name="department">
+                        <option value="">Tous les départements</option>
+                        <option value="Supervision Réseau">Supervision Réseau</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Comptabilité">Comptabilité</option>
+                        <option value="SAV">SAV</option>
+                        <option value="Caissière">Caissière</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="employeeSelect">Employé</label>
+                    <select id="employeeSelect">
+                        <option value="all">Tous les employés</option>
+                        <option value="Jarvis">Jarvis</option>
+                        <option value="Morel">Morel</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status">Statut</label>
+                    <select id="status" name="status">
+                        <option value="">Tous les statuts</option>
+                        <option value="present">Présents uniquement</option>
+                        <option value="absent">Absents uniquement</option>
+                        <option value="late">Retards uniquement</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Colonnes à inclure</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="col-name" checked>
+                        <label for="col-name">Nom employé</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="col-store" checked>
+                        <label for="col-store">Boutique</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="col-department" checked>
+                        <label for="col-department">Département</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="col-arrival" checked>
+                        <label for="col-arrival">Heure d'arrivée</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="col-departure" checked>
+                        <label for="col-departure">Heure de départ</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="col-breaks" checked>
+                        <label for="col-breaks">Pauses</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="col-total" checked>
+                        <label for="col-total">Heures totales</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="col-overtime">
+                        <label for="col-overtime">Heures supplémentaires</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="col-status" checked>
+                        <label for="col-status">Statut</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="col-notes">
+                        <label for="col-notes">Notes</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Types de rapports et téléchargement -->
+        <div class="two-column">
+            <div>
+                <div class="card">
+                    <h2>Types de Rapports</h2>
+                    <div class="report-type-grid">
+                        <div class="report-card selected">
+                            <div class="report-icon">📋</div>
+                            <div class="report-title">Rapport de Présence</div>
+                            <div class="report-description">Détails des arrivées, départs et heures travaillées par employé</div>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">⏰</div>
+                            <div class="report-title">Rapport des Retards</div>
+                            <div class="report-description">Analyse des retards avec durées et fréquences</div>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">📊</div>
+                            <div class="report-title">Statistiques par Boutique</div>
+                            <div class="report-description">Comparaison des performances entre boutiques</div>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">💰</div>
+                            <div class="report-title">Heures Supplémentaires</div>
+                            <div class="report-description">Détail des heures supplémentaires par employé</div>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">🏥</div>
+                            <div class="report-title">Absences et Congés</div>
+                            <div class="report-description">Suivi des absences justifiées et non justifiées</div>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">📈</div>
+                            <div class="report-title">Rapport Complet</div>
+                            <div class="report-description">Toutes les données combinées en un seul fichier</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="card">
+                    <div class="download-section">
+                        <div class="download-icon">📥</div>
+                        <h2>Télécharger le Rapport</h2>
+                        <p style="margin-bottom: 1.5rem;">Générer et télécharger le rapport Excel selon vos critères</p>
+                        <button class="btn-primary">📊 Générer Excel</button>
+                        <br><br>
+                        <button class="btn-secondary">👁️ Aperçu</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Actions Rapides</h2>
+                    <div class="nav-buttons">
+                        <button>📅 Rapport Aujourd'hui</button>
+                        <button>📊 Semaine Actuelle</button>
+                        <button>📈 Mois Dernier</button>
+                        <button>⚙️ Modèles</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Historique des téléchargements -->
+        <div class="card">
+            <h2>Téléchargements Récents</h2>
+            <div class="recent-downloads">
+                <div class="download-item">
+                    <div class="download-info">
+                        <div class="download-name">Rapport_Presence_Janvier_2024.xlsx</div>
+                        <div class="download-meta">Généré le 15/01/2024 à 14:30 - Toutes boutiques - 2.3 MB</div>
+                    </div>
+                    <div class="download-actions">
+                        <span class="status-badge status-ready">Prêt</span>
+                        <button class="btn-small">📥 Télécharger</button>
+                        <button class="btn-small btn-secondary">🗑️</button>
+                    </div>
+                </div>
+                
+                <div class="download-item">
+                    <div class="download-info">
+                        <div class="download-name">Retards_Semaine_02_2024.xlsx</div>
+                        <div class="download-meta">Généré le 14/01/2024 à 09:15 - Paris Centre - 456 KB</div>
+                    </div>
+                    <div class="download-actions">
+                        <span class="status-badge status-ready">Prêt</span>
+                        <button class="btn-small">📥 Télécharger</button>
+                        <button class="btn-small btn-secondary">🗑️</button>
+                    </div>
+                </div>
+                
+                <div class="download-item">
+                    <div class="download-info">
+                        <div class="download-name">Heures_Supp_Decembre_2023.xlsx</div>
+                        <div class="download-meta">En cours de génération... - Toutes boutiques</div>
+                    </div>
+                    <div class="download-actions">
+                        <span class="status-badge status-processing">En cours</span>
+                        <button class="btn-small" disabled>⏳ Traitement</button>
+                        <button class="btn-small btn-secondary">❌</button>
+                    </div>
+                </div>
+                
+                <div class="download-item">
+                    <div class="download-info">
+                        <div class="download-name">Stats_Boutiques_Q4_2023.xlsx</div>
+                        <div class="download-meta">Généré le 12/01/2024 à 16:45 - Lyon Bellecour - 1.8 MB</div>
+                    </div>
+                    <div class="download-actions">
+                        <span class="status-badge status-ready">Prêt</span>
+                        <button class="btn-small">📥 Télécharger</button>
+                        <button class="btn-small btn-secondary">🗑️</button>
+                    </div>
+                </div>
+                
+                <div class="download-item">
+                    <div class="download-info">
+                        <div class="download-name">Rapport_Complet_2023.xlsx</div>
+                        <div class="download-meta">Erreur lors de la génération - Données insuffisantes</div>
+                    </div>
+                    <div class="download-actions">
+                        <span class="status-badge status-error">Erreur</span>
+                        <button class="btn-small">🔄 Régénérer</button>
+                        <button class="btn-small btn-secondary">🗑️</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Actions rapides -->
+    <div class="nav-buttons">
+      <button onclick="window.location.href='dashboard.html'">📈 Dashboard</button>
+      <button onclick="window.location.href='shops.html'">🏨 Boutiques</button>
+      <button onclick="window.location.href='users.html'">👷‍♀️ Utilisateurs</button>
+      <button onclick="window.location.href='employees.html'">🙎‍♂️ Employés</button>
+      <button onclick="window.location.href='global-reports.html'">📝 Rapports</button>
+      <button onclick="logout()">Déconnexion</button>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>© 2025 BERTO Tracker - Rapports globaux</p>
+  </footer>
+  <script type="module" src="../../js/pages/reports.js"></script>
+</body>
+</html>

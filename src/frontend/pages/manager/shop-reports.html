@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rapports Boutique - BERTO Tracker</title>
+  <link rel="stylesheet" href="../../css/stylesshore.css">
+</head>
+<body>
+  <header>
+    <div class="logo">📊 BERTO Tracker - Rapports Boutique</div>
+  </header>
+  <div class="container">
+    <h1>Rapports de la Boutique</h1>
+
+    <!-- Information boutique -->
+        <div class="store-info">
+            <h3>🏪 Boutique : PK 12</h3>
+            <p>Manager : Patricia | 25 employés actifs |</p>
+        </div>
+
+    <!-- Sélection du type de rapport -->
+        <div class="card">
+            <h2>Type de Rapport</h2>
+            <div class="report-type-grid">
+                <div class="report-type-card selected">
+                    <div class="report-icon">📅</div>
+                    <h3>Quotidien</h3>
+                    <p>Rapport journalier des présences et horaires</p>
+                </div>
+                <div class="report-type-card">
+                    <div class="report-icon">📊</div>
+                    <h3>Hebdomadaire</h3>
+                    <p>Synthèse de la semaine avec heures travaillées</p>
+                </div>
+                <div class="report-type-card">
+                    <div class="report-icon">📈</div>
+                    <h3>Mensuel</h3>
+                    <p>Rapport complet du mois avec statistiques</p>
+                </div>
+            </div>
+        </div>
+    
+
+    <!-- Filtres -->
+        <div class="card">
+            <h2>Filtres de Période</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="startDate">Date de début</label>
+                    <input type="date" id="startDate" value="2025-01-01">
+                </div>
+                <div class="form-group">
+                    <label for="endDate">Date de fin</label>
+                    <input type="date" id="endDate" value="2025-01-31">
+                </div>
+                <div class="form-group">
+                    <label for="quickSelect">Sélection rapide</label>
+                    <select id="quickSelect">
+                        <option value="">Sélectionner une période</option>
+                        <option value="today">Aujourd'hui</option>
+                        <option value="yesterday">Hier</option>
+                        <option value="thisweek">Cette semaine</option>
+                        <option value="lastweek">Semaine dernière</option>
+                        <option value="thismonth">Ce mois</option>
+                        <option value="lastmonth">Mois dernier</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtres avancés -->
+        <div class="filter-section">
+            <h3>Filtres Avancés</h3>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="department">Département</label>
+                    <select id="department">
+                        <option value="">Tous les départements</option>
+                        <option value="Supervision Réseau">Supervision Réseau</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Comptabilité">Comptabilité</option>
+                        <option value="SAV">SAV</option>
+                        <option value="Caissière">Caissière</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="shift">Équipe</label>
+                    <select id="shift">
+                        <option value="">Toutes les équipes</option>
+                        <option value="matin">Équipe matin (7h30-15h)</option>
+                        <option value="jour">Équipe jour (7h30-17h)</option>
+                        <option value="soir">Équipe soir (15h-21h)</option>
+                    </select>
+                </div>
+            </div>
+         </div>
+
+        <!-- Sélection des employés -->
+        <div class="card">
+            <h2>Sélection des Employés</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="employeeSelect">Employés spécifiques</label>
+                    <select id="employeeSelect" multiple size="8">
+                        <option value="all" selected>Tous les employés (25)</option>
+                        <option value="Jarvis">Jarvis - Supervision Réseau</option>
+                        <option value="Patricia">Patricia - SAV</option>
+                        <option value="Carine">Carine - Caissière</option>
+                        <option value="Leonel">Leonel - Commercial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Actions rapides</label>
+                    <button type="button" style="width: 100%; margin-bottom: 0.5rem;">Sélectionner tout</button>
+                    <button type="button" style="width: 100%; margin-bottom: 0.5rem;">Désélectionner tout</button>
+                    <button type="button" style="width: 100%; margin-bottom: 0.5rem;">Sélectionner équipe matin</button>
+                    <button type="button" style="width: 100%;">Sélectionner équipe soir</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résumé -->
+        <div class="summary-section">
+            <h3>Résumé du Rapport</h3>
+            <div class="summary-item">
+                <span>Type de rapport :</span>
+                <span>Quotidien</span>
+            </div>
+            <div class="summary-item">
+                <span>Période :</span>
+                <span>01/01/2025 - 31/01/2025</span>
+            </div>
+            <div class="summary-item">
+                <span>Boutique :</span>
+                <span>PK 12</span>
+            </div>
+            <div class="summary-item">
+                <span>Employés sélectionnés :</span>
+                <span>25</span>
+            </div>
+            <div class="summary-item">
+                <span>Format :</span>
+                <span>Excel (.xlsx)</span>
+            </div>
+            <div class="summary-item">
+                <span>Taille estimée :</span>
+                <span>~ 2.5 MB</span>
+            </div>
+        </div>
+
+        <!-- Téléchargement -->
+        <div class="download-section">
+            <h2>Télécharger le Rapport</h2>
+            <p style="margin-bottom: 2rem; color: #666;">
+                Le rapport sera généré au format Excel et téléchargé automatiquement.<br>
+                Temps de génération estimé : 30 secondes
+            </p>
+            <button class="download-button">
+                📥 Télécharger le Rapport Excel
+            </button>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                Le fichier sera nommé : rapport_boutique_pk_12_01-01-2025_31-01-2025.xlsx
+            </p>
+        </div>
+
+        <!-- Historique des téléchargements récents -->
+        <div class="card">
+            <h2>Téléchargements Récents</h2>
+            <div style="margin-top: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; border-bottom: 1px solid #e0e0e0;">
+                    <div>
+                        <strong>Rapport Hebdomadaire</strong><br>
+                        <small>16/12/2024 - 22/12/2024 | 25 employés</small>
+                    </div>
+                    <div style="text-align: right;">
+                        <small>Téléchargé le 23/12/2024</small><br>
+                        <a href="#" style="color: var(--orange); text-decoration: none;">Retélécharger</a>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; border-bottom: 1px solid #e0e0e0;">
+                    <div>
+                        <strong>Rapport Mensuel</strong><br>
+                        <small>01/11/2024 - 30/11/2024 | 25 employés</small>
+                    </div>
+                    <div style="text-align: right;">
+                        <small>Téléchargé le 01/12/2024</small><br>
+                        <a href="#" style="color: var(--orange); text-decoration: none;">Retélécharger</a>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem;">
+                    <div>
+                        <strong>Rapport Quotidien</strong><br>
+                        <small>15/11/2024 | 23 employés</small>
+                    </div>
+                    <div style="text-align: right;">
+                        <small>Téléchargé le 16/11/2024</small><br>
+                        <a href="#" style="color: var(--orange); text-decoration: none;">Retélécharger</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <!-- Actions rapides -->
+    <div class="nav-buttons">
+      <button onclick="window.location.href='time-tracking.html'">⏰ Pointage</button>
+      <button onclick="window.location.href='shop-reports.html'">📝 Rapports Boutique</button>
+      <button onclick="logout()">Déconnexion</button>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>© 2025 BERTO Tracker - Rapports boutique</p>
+  </footer>
+  <script type="module" src="../../js/pages/reports.js"></script>
+</body>
+</html>

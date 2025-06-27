@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pointage - BERTO Tracker</title>
+  <link rel="stylesheet" href="../../css/stylestitra.css">
+</head>
+<body>
+  <header>
+    <div class="logo">⏰ BERTO Tracker - Manager</div>
+  </header>
+
+  <div class="container">
+    <h1>Pointage des Employés</h1>
+
+
+
+    <!-- Bouton Scanner -->
+        <div class="nav-buttons">
+            <button onclick="toggleScanner()">📱 Démarrer le Scanner</button>
+            <button>💾 Sauvegarder les Heures</button>
+            <button>📊 Voir le Récapitulatif</button>
+        </div>
+
+        <!-- Zone Scanner (masquée par défaut) -->
+        <div id="scanner-container">
+            <h2>📷 Scanner de Badge</h2>
+            <div id="scanner-video">
+                <div class="scanner-placeholder">
+                    <div>📹</div>
+                    <div style="margin-top: 1rem;">Caméra activée</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">
+                        Placez le badge dans le cadre orange
+                    </div>
+                </div>
+                <div class="scanner-overlay"></div>
+            </div>
+            <div class="scanner-info">
+                <p><strong>Instructions :</strong></p>
+                <p>• Tenez le badge bien droit dans le cadre orange</p>
+                <p>• Assurez-vous que le code-barres est visible</p>
+                <p>• Attendez le bip de confirmation</p>
+            </div>
+            <div class="scanner-controls">
+                <button class="btn-small">🔄 Réinitialiser</button>
+                <button class="btn-small">❌ Fermer Scanner</button>
+            </div>
+        </div>
+
+        <!-- Tableau des employés -->
+        <div class="card">
+            <h2>👥 Employés de la Boutique (25 employés)</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Département</th>
+                        <th>Heure d'Arrivée</th>
+                        <th>Heure de Départ</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Alice Johnson</td>
+                        <td>Vente</td>
+                        <td><input type="time" class="time-input" value="08:00"></td>
+                        <td><input type="time" class="time-input" placeholder="--:--"></td>
+                        <td><span class="status-badge status-present">Présent</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-small">✓</button>
+                                <button class="btn-small">✏️</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Bob Wilson</td>
+                        <td>Caisse</td>
+                        <td><input type="time" class="time-input" value="08:15"></td>
+                        <td><input type="time" class="time-input" placeholder="--:--"></td>
+                        <td><span class="status-badge status-late">Retard</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-small">✓</button>
+                                <button class="btn-small">✏️</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Claire Martin</td>
+                        <td>Management</td>
+                        <td><input type="time" class="time-input" value="07:45"></td>
+                        <td><input type="time" class="time-input" placeholder="--:--"></td>
+                        <td><span class="status-badge status-present">Présent</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-small">✓</button>
+                                <button class="btn-small">✏️</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>004</td>
+                        <td>David Brown</td>
+                        <td>Stock</td>
+                        <td><input type="time" class="time-input" placeholder="--:--"></td>
+                        <td><input type="time" class="time-input" placeholder="--:--"></td>
+                        <td><span class="status-badge status-absent">Absent</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-small">✓</button>
+                                <button class="btn-small">✏️</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>005</td>
+                        <td>Emma Davis</td>
+                        <td>Vente</td>
+                        <td><input type="time" class="time-input" value="08:05"></td>
+                        <td><input type="time" class="time-input" placeholder="--:--"></td>
+                        <td><span class="status-badge status-present">Présent</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-small">✓</button>
+                                <button class="btn-small">✏️</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>006</td>
+                        <td>Frank Miller</td>
+                        <td>Vente</td>
+                        <td><input type="time" class="time-input" value="09:00"></td>
+                        <td><input type="time" class="time-input" placeholder="--:--"></td>
+                        <td><span class="status-badge status-present">Présent</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-small">✓</button>
+                                <button class="btn-small">✏️</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>007</td>
+                        <td>Grace Lee</td>
+                        <td>Caisse</td>
+                        <td><input type="time" class="time-input" value="08:30"></td>
+                        <td><input type="time" class="time-input" placeholder="--:--"></td>
+                        <td><span class="status-badge status-present">Présent</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-small">✓</button>
+                                <button class="btn-small">✏️</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>008</td>
+                        <td>Henry Taylor</td>
+                        <td>Stock</td>
+                        <td><input type="time" class="time-input" placeholder="--:--"></td>
+                        <td><input type="time" class="time-input" placeholder="--:--"></td>
+                        <td><span class="status-badge status-absent">Absent</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-small">✓</button>
+                                <button class="btn-small">✏️</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Résumé du jour -->
+        <div class="card">
+            <h2>📊 Résumé du Jour</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <div style="text-align: center; padding: 1rem; background: #e8f5e8; border-radius: var(--radius);">
+                    <div style="font-size: 2rem; color: #2e7d2e; font-weight: bold;">6</div>
+                    <div>Employés Présents</div>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: #ffe6e6; border-radius: var(--radius);">
+                    <div style="font-size: 2rem; color: #e74c3c; font-weight: bold;">2</div>
+                    <div>Employés Absents</div>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: #fff3cd; border-radius: var(--radius);">
+                    <div style="font-size: 2rem; color: #856404; font-weight: bold;">1</div>
+                    <div>Retards</div>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: #d1ecf1; border-radius: var(--radius);">
+                    <div style="font-size: 2rem; color: #0c5460; font-weight: bold;">42h</div>
+                    <div>Heures Travaillées</div>
+                </div>
+            </div>
+        </div>
+    
+
+
+    <!-- Actions rapides -->
+    <div class="nav-buttons">
+      <button onclick="window.location.href='time-tracking.html'">⏰ Pointage</button>
+      <button onclick="window.location.href='shop-reports.html'">📝 Rapports Boutique</button>
+      <button onclick="logout()">Déconnexion</button>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>© 2025 BERTO Tracker - Pointage des employés</p>
+  </footer>
+  <script type="module" src="../../js/components/qr-scanner.js"></script>
+  <script type="module" src="../../js/pages/time-tracking.js"></script>
+  <script>
+        function toggleScanner() {
+            const scanner = document.getElementById('scanner-container');
+            if (scanner.style.display === 'none' || scanner.style.display === '') {
+                scanner.style.display = 'block';
+                scanner.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                scanner.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

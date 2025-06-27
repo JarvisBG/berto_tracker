@@ -1,0 +1,6 @@
+{
+  "appName": "Berto Tracker",
+  "version": "1.0.0",
+  "environment": "development",
+  "port": 3000
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des Utilisateurs - BERTO Tracker</title>
+  <link rel="stylesheet" href="../../css/stylesusers.css">
+</head>
+<body>
+  <header>
+    <div class="logo">👥 BERTO Tracker - Gestion Utilisateurs</div>
+  </header>
+  <div class="container">
+    <h1>Gestion des Utilisateurs</h1>
+    <!-- Statistiques -->
+    <div class="stats-section">
+      <div class="stat-card">
+        <div class="stat-number" id="totalUsers">0</div>
+        <div class="stat-label">Total Utilisateurs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="totalAdmins">0</div>
+        <div class="stat-label">Administrateurs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="totalManagers">0</div>
+        <div class="stat-label">Managers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="totalShops">0</div>
+        <div class="stat-label">Boutiques</div>
+      </div>
+    </div>
+    <div class="two-column">
+      <!-- Formulaire d'ajout -->
+      <div class="card">
+        <h2>Ajouter un Utilisateur</h2>
+        <form id="addUserForm">
+          <div class="form-group">
+            <label for="nom">Nom complet</label>
+            <input type="text" id="nom" name="nom" placeholder="Ex: Jean Dupont" required>
+          </div>
+          <div class="form-group">
+            <label for="identifiant">Identifiant de connexion</label>
+            <input type="text" id="identifiant" name="identifiant" placeholder="Ex: j.dupont" required>
+          </div>
+          <div class="form-group">
+            <label for="boutique">Boutique d'affectation</label>
+            <select id="boutique" name="boutique" required>
+              <option value="">Sélectionner une boutique</option>
+              <option value="1">Boutique PK 12</option>
+              <option value="2">Boutique Zachman</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="motdepasse">Mot de passe</label>
+            <input type="password" id="motdepasse" name="motdepasse" placeholder="Mot de passe sécurisé" required>
+          </div>
+          <div class="form-group">
+            <label for="role">Rôle</label>
+            <select id="role" name="role" required>
+              <option value="">Sélectionner un rôle</option>
+              <option value="admin">Administrateur</option>
+              <option value="manager">Manager</option>
+            </select>
+          </div>
+          <button type="submit">➕ Ajouter l'utilisateur</button>
+        </form>
+      </div>
+      <!-- Liste des utilisateurs -->
+      <div class="card">
+        <h2>Liste des Utilisateurs</h2>
+        <!-- Recherche et filtres -->
+        <div class="search-section">
+          <div class="search-input">
+            <input type="text" id="searchInput" placeholder="🔍 Rechercher par nom ou identifiant..." style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; border-radius: var(--radius);">
+          </div>
+          <div class="filter-select">
+            <select id="filterShop" style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; border-radius: var(--radius);">
+              <option value="">Toutes les boutiques</option>
+              <option value="1">Boutique PK 12</option>
+              <option value="2">Boutique Zachman</option>
+              <option value="3">Boutique Dakar</option>
+            </select>
+          </div>
+          <div class="filter-select">
+            <select id="filterRole" style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; border-radius: var(--radius);">
+              <option value="">Tous les rôles</option>
+              <option value="admin">Administrateur</option>
+              <option value="manager">Manager</option>
+            </select>
+          </div>
+        </div>
+        <!-- Tableau des utilisateurs -->
+        <div style="overflow-x: auto;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Boutique</th>
+                <th>Identifiant</th>
+                <th>Mot de passe</th>
+                <th>Rôle</th>
+                <th class="actions-column">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+               <tr>
+                                <td>Admin</td>
+                                <td></td>
+                                <td>admin</td>
+                                <td>••••••••</td>
+                                <td><span class="role-badge role-admin">Admin</span></td>
+                                <td>
+                                    <button class="btn-edit">✏️ Modifier</button>
+                                    <button class="btn-delete">🗑️ Supprimer</button>
+                                </td>
+               </tr>
+               <tr>
+                                <td>Manager</td>
+                                <td></td>
+                                <td>manager_pk12</td>
+                                <td>••••••••</td>
+                                <td><span class="role-badge role-manager">Manager</span></td>
+                                <td>
+                                    <button class="btn-edit">✏️ Modifier</button>
+                                    <button class="btn-delete">🗑️ Supprimer</button>
+                                </td>
+               </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Actions rapides -->
+    <div class="nav-buttons">
+      <button onclick="window.location.href='dashboard.html'">📈 Dashboard</button>
+      <button onclick="window.location.href='shops.html'">🏨 Boutiques</button>
+      <button onclick="window.location.href='users.html'">👷‍♀️ Utilisateurs</button>
+      <button onclick="window.location.href='employees.html'">🙎‍♂️ Employés</button>
+      <button onclick="window.location.href='global-reports.html'">📝 Rapports</button>
+      <button onclick="logout()">Déconnexion</button>
+    </div>
+  </div>
+  <script type="module" src="../../js/pages/users.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "appId": "com.bertotracker.app",
+  "productName": "BERTO Tracker",
+  "directories": {
+    "output": "dist"
+  },
+  "win": {
+    "target": "nsis"
+  },
+  "mac": {
+    "target": "dmg"
+  },
+  "linux": {
+    "target": "AppImage"
+  }
+}
